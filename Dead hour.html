@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>9 Дней | Выбор персонажа</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ФОН -->
+<div class="game-bg" id="gameBg"></div>
+
+<!-- УВЕДОМЛЕНИЕ О МУЗЫКЕ (снизу слева) -->
+<div class="music-notification" id="musicNotification">
+    <span id="musicNotificationText">🎵 меню</span>
+</div>
+
+<!-- ИНТРО (ЗАСТАВКА) -->
+<div class="intro-screen" id="introScreen">
+    <div class="intro-title" id="introTitle">Глава 1</div>
+    <div class="intro-subtitle" id="introSubtitle">Конец старого мира</div>
+</div>
+
+<!-- ГЛАВНОЕ МЕНЮ (новый стиль) -->
+<div class="main-menu" id="mainMenu">
+    <div class="menu-left">
+        <h1 class="game-title">9 ДНЕЙ</h1>
+        <div class="menu-buttons">
+            <button class="menu-btn" id="startGameBtn">ИГРАТЬ</button>
+        </div>
+    </div>
+</div>
+
+<!-- ЭКРАН ВЫБОРА ПЕРСОНАЖА -->
+<div class="character-select" id="characterSelect" style="display: none;">
+    <h1 class="select-title">ВЫБЕРИ ПЕРСОНАЖА</h1>
+    <div class="characters-container">
+        <!-- Валера -->
+        <div class="character-card" data-character="valera">
+            <div class="card-bg" style="background-image: url('images/characters/Valera.jpg');"></div>
+            <div class="card-content">
+                <h2>ВАЛЕРА</h2>
+                <p>Обычный сотрудник редакции. В его жизни всё шло по плану, пока в один день мир не погрузился в полный хаос.</p>
+                <button class="select-char-btn">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <!-- Яна -->
+        <div class="character-card" data-character="yana">
+            <div class="card-bg" style="background-image: url('images/characters/Yana.jpg');"></div>
+            <div class="card-content">
+                <h2>ЯНА</h2>
+                <p>Молодая журналистка, расследующая странные события в городе. Её путь только начинается.</p>
+                <button class="select-char-btn">ВЫБРАТЬ</button>
+            </div>
+        </div>
+        <!-- Игнат -->
+        <div class="character-card" data-character="ignat">
+            <div class="card-bg" style="background-image: url('images/characters/Ignat.jpg');"></div>
+            <div class="card-content">
+                <h2>ИГНАТ</h2>
+                <p>Военный, столкнувшийся с заражением на блокпосту. Его история раскроется позже.</p>
+                <button class="select-char-btn">ВЫБРАТЬ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ИГРОВОЙ ЭКРАН -->
+<div class="game-screen" id="gameScreen">
+    <div class="story-text" id="storyText"></div>
+    <div class="buttons-container" id="buttonsContainer"></div>
+</div>
+
+<!-- МУЗЫКАЛЬНЫЙ ПЛЕЙЕР -->
+<div class="music-player" id="musicPlayer">
+    <span class="music-icon" id="musicIcon">🎵</span>
+    <span class="music-status" id="musicStatus">МУЗЫКА: ВКЛ</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

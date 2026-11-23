@@ -1,0 +1,848 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Courier New', 'Segoe UI', monospace;
+    position: relative;
+    overflow-x: hidden;
+    background: #000;
+}
+
+/* ОБЩИЙ ФОН ДЛЯ ВСЕХ ЭКРАНОВ */
+.game-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}
+
+/* ===================== ГЛАВНОЕ МЕНЮ (СТАРЫЙ СТИЛЬ) ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Courier New', 'Segoe UI', monospace;
+    position: relative;
+    overflow-x: hidden;
+    background: #000;
+}
+
+/* ОБЩИЙ ФОН ДЛЯ ВСЕХ ЭКРАНОВ */
+.game-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}
+
+/* ===================== ГЛАВНОЕ МЕНЮ (НОВЫЙ СТИЛЬ - DARK SOULS) ===================== */
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: url('images/menu/Menu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Левая колонка с названием и кнопками */
+.menu-left {
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.game-title {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #990d0d;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    letter-spacing: 12px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+}
+
+/* Контейнер для кнопок */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Стиль кнопки (как в Dark Souls) */
+.menu-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #990d0d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    text-align: left;
+    position: relative;
+}
+
+/* Линия под кнопкой при наведении */
+.menu-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #990d0d;
+    transition: width 0.3s ease;
+}
+
+.menu-btn:hover {
+    color: #990d0d;
+    transform: translateX(8px);
+}
+
+.menu-btn:hover::after {
+    width: 100%;
+}
+
+.menu-btn:active {
+    transform: translateX(4px);
+    color: #990d0d;
+}
+
+/* ===================== ИНТРО (ХОРРОР-ШРИФТ, СЕРЫЙ ЦВЕТ) ===================== */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.intro-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.intro-title {
+    font-size: 5.5rem;
+    font-weight: 900;
+    color: #888888;
+    text-shadow: 0 0 30px rgba(100, 100, 100, 0.3), 0 0 60px rgba(50, 50, 50, 0.2);
+    letter-spacing: 12px;
+    font-family: 'Creepster', 'Courier New', 'Times New Roman', cursive;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: introAppear 2s ease-out forwards;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.intro-subtitle {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #777777;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: 6px;
+    font-family: 'Creepster', 'Courier New', cursive;
+    opacity: 0;
+    animation: introAppear 2s ease-out 0.5s forwards;
+    margin-top: 10px;
+}
+
+.intro-chapter {
+    font-size: 1.6rem;
+    color: #666666;
+    letter-spacing: 8px;
+    font-family: 'Creepster', 'Courier New', cursive;
+    opacity: 0;
+    animation: introAppear 2s ease-out 1s forwards;
+    margin-top: 5px;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #666666, transparent);
+    animation: lineGrow 2s ease-out 0.3s forwards;
+    margin: 30px 0;
+}
+
+@keyframes introAppear {
+    0% { opacity: 0; transform: scale(0.5); filter: blur(10px); }
+    60% { opacity: 1; transform: scale(1.05); filter: blur(0); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes lineGrow {
+    0% { width: 0; opacity: 0; }
+    100% { width: 60%; opacity: 1; }
+}
+
+.intro-fade-out {
+    animation: introFadeOut 1.5s ease-in forwards;
+}
+
+@keyframes introFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); filter: blur(5px); }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* ===================== ЭКРАН ВЫБОРА ПЕРСОНАЖА ===================== */
+.character-select {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+    background-image: url('images/characters/c');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.select-title {
+    font-size: 3rem;
+    color: #8b0000;
+    text-shadow: 0 0 10px rgba(139,0,0,0.5);
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.character-card {
+    position: relative;
+    width: 300px;
+    background: rgba(20, 20, 30, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #8b3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(139,0,0,0.3);
+    border-color: #cc6666;
+}
+
+.card-bg {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    transition: filter 0.3s;
+}
+
+.character-card:hover .card-bg {
+    filter: brightness(0.9);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h2 {
+    color: #ddbb99;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.card-content p {
+    color: #aa8a8a;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: monospace;
+}
+
+.select-char-btn {
+    background: linear-gradient(135deg, #2a1a1a, #1a0a0a);
+    border: 1px solid #8b3a3a;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ccaa88;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.select-char-btn:hover {
+    background: #8b3a3a;
+    color: #fff;
+    border-color: #cc8866;
+}
+
+/* ===================== ИГРОВОЙ ЭКРАН ===================== */
+.game-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 15% 120px 15%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.game-screen.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #f0f0e0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Courier New', 'Georgia', monospace;
+    max-width: 800px;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    text-align: center;
+    background: transparent;
+    padding: 0;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.choice-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #8b3a3a;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ddbb99;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+    backdrop-filter: blur(4px);
+    letter-spacing: 1px;
+}
+
+.choice-btn:hover {
+    background: rgba(139, 0, 0, 0.6);
+    border-color: #cc8866;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.choice-btn:active {
+    transform: translateY(1px);
+}
+
+/* ===================== МУЗЫКАЛЬНЫЙ ПЛЕЙЕР ===================== */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(139,0,0,0.5);
+    font-size: 0.7rem;
+    color: #aa6a6a;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.music-player:hover {
+    background: rgba(0,0,0,0.8);
+    color: #cc8a8a;
+}
+
+/* ===================== УВЕДОМЛЕНИЕ О МУЗЫКЕ (СНИЗУ СЛЕВА) ===================== */
+.music-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 300;
+    color: #888888;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 14px;
+    border-radius: 4px;
+    border-left: 2px solid #8b0000;
+}
+
+.music-notification.show {
+    opacity: 1;
+}
+
+/* ===================== АДАПТАЦИЯ ===================== */
+@media (max-width: 768px) {
+    .menu-left {
+        padding-left: 30px;
+    }
+    .game-title {
+        font-size: 2.8rem;
+        letter-spacing: 6px;
+    }
+    .menu-btn {
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+    }
+    .character-select { padding: 20px; }
+    .select-title { font-size: 2rem; margin-bottom: 30px; }
+    .character-card { width: 260px; }
+    .card-bg { height: 150px; }
+    .game-screen { padding: 60px 20px 100px 20px; }
+    .story-text { font-size: 1rem; }
+    .choice-btn { padding: 10px 20px; font-size: 0.85rem; }
+    .intro-title { font-size: 2.8rem; letter-spacing: 4px; }
+    .intro-subtitle { font-size: 1.8rem; }
+    .intro-chapter { font-size: 1.2rem; }
+    .music-notification { font-size: 0.7rem; bottom: 20px; left: 20px; padding: 4px 10px; }
+}
+
+/* ===================== ИНТРО (ХОРРОР-ШРИФТ, СЕРЫЙ ЦВЕТ) ===================== */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.7); /* затемнение поверх фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.intro-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.intro-title {
+    font-size: 5.5rem;
+    font-weight: 900;
+    color: #888888;
+    text-shadow: 0 0 30px rgba(100, 100, 100, 0.3), 0 0 60px rgba(50, 50, 50, 0.2);
+    letter-spacing: 12px;
+    font-family: 'Creepster', 'Courier New', 'Times New Roman', cursive;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: introAppear 2s ease-out forwards;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.intro-subtitle {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #777777;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: 6px;
+    font-family: 'Creepster', 'Courier New', cursive;
+    opacity: 0;
+    animation: introAppear 2s ease-out 0.5s forwards;
+    margin-top: 10px;
+}
+
+.intro-chapter {
+    font-size: 1.6rem;
+    color: #666666;
+    letter-spacing: 8px;
+    font-family: 'Creepster', 'Courier New', cursive;
+    opacity: 0;
+    animation: introAppear 2s ease-out 1s forwards;
+    margin-top: 5px;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #666666, transparent);
+    animation: lineGrow 2s ease-out 0.3s forwards;
+    margin: 30px 0;
+}
+
+@keyframes introAppear {
+    0% { opacity: 0; transform: scale(0.5); filter: blur(10px); }
+    60% { opacity: 1; transform: scale(1.05); filter: blur(0); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes lineGrow {
+    0% { width: 0; opacity: 0; }
+    100% { width: 60%; opacity: 1; }
+}
+
+.intro-fade-out {
+    animation: introFadeOut 1.5s ease-in forwards;
+}
+
+@keyframes introFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); filter: blur(5px); }
+}
+
+/* Подключаем хоррор-шрифт Creepster из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* ===================== ЭКРАН ВЫБОРА ПЕРСОНАЖА (единый фон) ===================== */
+.character-select {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+    /* ЕДИНЫЙ ФОН - ВСТАВЬТЕ СВОЙ ЗДЕСЬ */
+    background-image: url('images/menu/Characters.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.select-title {
+    font-size: 3rem;
+    color: #8b0000;
+    text-shadow: 0 0 10px rgba(139,0,0,0.5);
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.character-card {
+    position: relative;
+    width: 300px;
+    background: rgba(20, 20, 30, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #8b3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(139,0,0,0.3);
+    border-color: #cc6666;
+}
+
+.card-bg {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    transition: filter 0.3s;
+}
+
+.character-card:hover .card-bg {
+    filter: brightness(0.9);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h2 {
+    color: #ddbb99;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.card-content p {
+    color: #aa8a8a;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: monospace;
+}
+
+.select-char-btn {
+    background: linear-gradient(135deg, #2a1a1a, #1a0a0a);
+    border: 1px solid #8b3a3a;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ccaa88;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.select-char-btn:hover {
+    background: #8b3a3a;
+    color: #fff;
+    border-color: #cc8866;
+}
+
+/* ===================== ИГРОВОЙ ЭКРАН ===================== */
+.game-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 15% 120px 15%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.game-screen.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #f0f0e0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Courier New', 'Georgia', monospace;
+    max-width: 800px;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    text-align: center;
+    background: transparent;
+    padding: 0;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.choice-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #8b3a3a;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ddbb99;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+    backdrop-filter: blur(4px);
+    letter-spacing: 1px;
+}
+
+.choice-btn:hover {
+    background: rgba(139, 0, 0, 0.6);
+    border-color: #cc8866;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.choice-btn:active {
+    transform: translateY(1px);
+}
+
+/* ===================== МУЗЫКАЛЬНЫЙ ПЛЕЙЕР ===================== */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(139,0,0,0.5);
+    font-size: 0.7rem;
+    color: #aa6a6a;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.music-player:hover {
+    background: rgba(0,0,0,0.8);
+    color: #cc8a8a;
+}
+
+/* ===================== УВЕДОМЛЕНИЕ О МУЗЫКЕ (СНИЗУ СЛЕВА) ===================== */
+.music-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 300;
+    color: #888888;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 14px;
+    border-radius: 4px;
+    border-left: 2px solid #8b0000;
+}
+
+.music-notification.show {
+    opacity: 1;
+}
+
+/* ===================== АДАПТАЦИЯ ===================== */
+@media (max-width: 768px) {
+    .game-title { font-size: 2.5rem; text-align: center; padding: 0 20px; }
+    .start-btn { padding: 12px 32px; font-size: 1rem; }
+    .character-select { padding: 20px; }
+    .select-title { font-size: 2rem; margin-bottom: 30px; }
+    .character-card { width: 260px; }
+    .card-bg { height: 150px; }
+    .game-screen { padding: 60px 20px 100px 20px; }
+    .story-text { font-size: 1rem; }
+    .choice-btn { padding: 10px 20px; font-size: 0.85rem; }
+    .intro-title { font-size: 2.8rem; letter-spacing: 4px; }
+    .intro-subtitle { font-size: 1.8rem; }
+    .intro-chapter { font-size: 1.2rem; }
+    .music-notification { font-size: 0.7rem; bottom: 20px; left: 20px; padding: 4px 10px; }
+}
+/* Фоны для интро каждого персонажа */
+.intro-bg-valera {
+    background-image: url('images/valera/Intro.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.intro-bg-yana {
+    background-image: url('images/yana/Intro.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.intro-bg-ignat {
+    background-image: url('images/');
+    background-size: cover;
+    background-position: center;
+}
